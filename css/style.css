@@ -1964,3 +1964,596 @@ footer .contact-item .fa-envelope {
 .footer-grid > div:nth-child(2) {
   transform: translateX(120px);
 }
+
+/* =========================================================
+   AJUSTE FINAL PARA CELULAR
+   NÃO ALTERA A VERSÃO DO COMPUTADOR
+   ========================================================= */
+
+@media (max-width: 640px) {
+  /* ===== PÁGINA ===== */
+
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* =====================================================
+     HEADER
+     ===================================================== */
+
+  header {
+    width: 100%;
+    padding: 12px 16px;
+    min-height: 76px;
+  }
+
+  .top-logo {
+    transform: none;
+  }
+
+  .header-logo-circle {
+    height: 48px;
+  }
+
+  .logo {
+    gap: 8px;
+  }
+
+  .logo-text {
+    margin-left: 0;
+  }
+
+  .logo-text b {
+    font-size: 13px;
+  }
+
+  .logo-text span {
+    font-size: 7px;
+    letter-spacing: 1.1px;
+  }
+
+  .nav-toggle {
+    font-size: 25px;
+    padding: 5px;
+  }
+
+  /* =====================================================
+     HERO
+     ===================================================== */
+
+  .hero {
+    padding: 45px 0 95px;
+    min-height: 430px;
+    background-position: center center;
+  }
+
+  .hero-inner {
+    min-height: 330px;
+    width: 100%;
+  }
+
+  .hero-text {
+    width: 100%;
+    max-width: 100%;
+    transform: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /*
+     A imagem é muito grande no desktop.
+     Aqui ela ganha um tamanho próprio para celular.
+  */
+
+  .hero-text .crown {
+    width: 100%;
+    height: 95px;
+    margin: 0 auto 5px;
+  }
+
+  .hero-text .crown img {
+    width: 380px;
+    height: 170px;
+    max-width: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -67%);
+  }
+
+  .hero-text p {
+    width: 100%;
+    max-width: 320px;
+    margin: 12px auto 22px;
+    font-size: 13px;
+    line-height: 1.5;
+    transform: none;
+  }
+
+  .btn-encomenda {
+    transform: none;
+    font-size: 13px;
+    padding: 13px 20px;
+  }
+
+  .btn-encomenda:hover {
+    transform: translateY(-2px);
+  }
+
+  /*
+     Corrige a animação do botão no celular.
+     Mantém o efeito, mas sem o deslocamento de -40px.
+  */
+
+  .btn-encomenda.chamar-encomenda {
+    animation: destaqueEncomendaMobile 0.7s ease-in-out infinite;
+  }
+
+  @keyframes destaqueEncomendaMobile {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 5px 0 #c98410;
+    }
+
+    50% {
+      transform: scale(1.06);
+      box-shadow:
+        0 0 0 7px rgba(243, 180, 0, 0.2),
+        0 0 25px rgba(243, 180, 0, 0.8);
+    }
+
+    100% {
+      transform: scale(1);
+      box-shadow: 0 5px 0 #c98410;
+    }
+  }
+
+  /* =====================================================
+     PRODUTOS
+     ===================================================== */
+
+  .products {
+    padding: 50px 0 40px;
+  }
+
+  .section-title {
+    margin-bottom: 28px;
+  }
+
+  .eyebrow-row {
+    font-size: 18px;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+
+  .section-title h2 {
+    font-size: 27px;
+    line-height: 1.1;
+  }
+
+  .section-title p {
+    font-size: 13px;
+    line-height: 1.5;
+    padding: 0 8px;
+  }
+
+  .section-title .script-inline {
+    font-size: 18px;
+  }
+
+  .product-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .product-card {
+    width: 100%;
+    min-width: 0;
+    border-radius: 14px;
+  }
+
+  .product-card img {
+    width: 100%;
+    height: 125px;
+    object-fit: cover;
+  }
+
+  .product-card .info {
+    padding: 12px 10px 14px;
+  }
+
+  .product-card h3 {
+    font-size: 13px;
+    line-height: 1.15;
+    min-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .product-card p {
+    font-size: 10px;
+    line-height: 1.4;
+    min-height: 58px;
+  }
+
+  .price {
+    margin-top: 9px;
+    padding: 7px 5px;
+    font-size: 13px;
+  }
+
+  .price small {
+    font-size: 9px;
+  }
+
+  .btn-add-cart {
+    margin-top: 9px;
+    padding: 8px 5px;
+    font-size: 10px;
+  }
+
+  .btn-add-cart i {
+    font-size: 11px;
+  }
+
+  .see-all {
+    margin-top: 28px;
+  }
+
+  .btn-ver-produtos {
+    font-size: 12px;
+    padding: 11px 18px;
+  }
+
+  /* =====================================================
+     FEATURES
+     ===================================================== */
+
+  .features {
+    padding: 35px 0;
+  }
+
+  .features-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 26px 14px;
+  }
+
+  .feature {
+    gap: 9px;
+    align-items: center;
+  }
+
+  .feature-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .feature h4 {
+    font-size: 13px;
+    margin-bottom: 2px;
+  }
+
+  .feature p {
+    font-size: 10px;
+    line-height: 1.35;
+  }
+
+  /* =====================================================
+     REVENDEDOR
+     ===================================================== */
+
+  .reseller {
+    padding: 55px 0;
+  }
+
+  .reseller-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .reseller h2 {
+    font-size: 21px;
+    line-height: 1.1;
+  }
+
+  .reseller h2 .script {
+    font-size: 44px;
+  }
+
+  .reseller p {
+    font-size: 13px;
+    line-height: 1.5;
+    max-width: 310px;
+    margin: 8px auto 20px;
+  }
+
+  .btn-revendedor {
+    font-size: 12px;
+    padding: 12px 18px;
+  }
+
+  /*
+     O balão tinha right:480px no desktop.
+     No celular ele volta para o fluxo normal.
+  */
+
+  .reseller-bubble {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 125px;
+    height: 125px;
+    margin: 0 auto;
+    font-size: 11px;
+    padding: 14px;
+  }
+
+  .reseller-card {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+    padding: 18px 16px;
+  }
+
+  .reseller-card h3 {
+    font-size: 14px;
+  }
+
+  .reseller-point {
+    gap: 10px;
+    margin-bottom: 14px;
+    text-align: left;
+  }
+
+  .reseller-point .ic {
+    width: 34px;
+    height: 34px;
+    font-size: 15px;
+  }
+
+  .reseller-point b {
+    font-size: 12px;
+  }
+
+  .reseller-point span {
+    font-size: 10.5px;
+    line-height: 1.35;
+  }
+
+  /* =====================================================
+     DEPOIMENTOS
+     ===================================================== */
+
+  .testimonials {
+    padding: 50px 0;
+  }
+
+  .testi-row {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .testi-card {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .testi-card img {
+    width: 95px;
+    height: auto;
+    min-height: 150px;
+    object-fit: cover;
+  }
+
+  .testi-body {
+    padding: 13px;
+    font-size: 11px;
+  }
+
+  .stars {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+
+  .testi-body p {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .testi-body .who {
+    font-size: 11px;
+  }
+
+  /* =====================================================
+     FOOTER
+     ===================================================== */
+
+  footer {
+    padding: 45px 0 20px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  /*
+     IMPORTANTE:
+     Esses dois translateX eram feitos para o desktop.
+     No celular eles precisam ser zerados.
+  */
+
+  .footer-grid > div:nth-child(2),
+  .footer-grid > div:nth-child(3) {
+    transform: none;
+  }
+
+  .footer-brand {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-brand .logo {
+    justify-content: center;
+  }
+
+  .footer-brand p {
+    max-width: 320px;
+    font-size: 12px;
+  }
+
+  footer h4 {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  footer ul li {
+    font-size: 12px;
+  }
+
+  footer .contact-item {
+    font-size: 12px;
+  }
+
+  .copyright {
+    font-size: 10px;
+    line-height: 1.4;
+    padding: 15px 12px;
+  }
+
+  /* =====================================================
+     CARRINHO
+     ===================================================== */
+
+  .cart-button {
+    right: 15px;
+    bottom: 15px;
+    width: 58px;
+    height: 58px;
+    font-size: 20px;
+  }
+
+  .cart-button span {
+    min-width: 23px;
+    height: 23px;
+    font-size: 11px;
+  }
+
+  .cart-panel {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .cart-header {
+    padding: 18px 16px;
+  }
+
+  .cart-header h2 {
+    font-size: 20px;
+  }
+
+  .cart-items {
+    padding: 12px;
+  }
+
+  .cart-item {
+    grid-template-columns: 58px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .cart-item-image {
+    width: 58px;
+    height: 58px;
+  }
+
+  .cart-footer {
+    padding: 14px;
+  }
+
+  .checkout-button {
+    font-size: 12px;
+    padding: 13px 10px;
+  }
+}
+
+/* =========================================================
+   CELULARES MUITO PEQUENOS
+   ========================================================= */
+
+@media (max-width: 380px) {
+  header {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .header-logo-circle {
+    height: 43px;
+  }
+
+  .logo-text b {
+    font-size: 11px;
+  }
+
+  .logo-text span {
+    font-size: 6px;
+  }
+
+  .hero-text .crown img {
+    width: 340px;
+    height: 155px;
+  }
+
+  .product-row {
+    gap: 10px;
+  }
+
+  .product-card img {
+    height: 110px;
+  }
+
+  .product-card .info {
+    padding: 10px 8px 12px;
+  }
+
+  .product-card h3 {
+    font-size: 12px;
+  }
+
+  .product-card p {
+    font-size: 9.5px;
+  }
+
+  .features-row {
+    gap: 22px 10px;
+  }
+
+  .feature {
+    gap: 7px;
+  }
+
+  .feature-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .feature h4 {
+    font-size: 12px;
+  }
+
+  .feature p {
+    font-size: 9px;
+  }
+}
