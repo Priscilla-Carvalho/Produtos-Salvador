@@ -1,0 +1,1966 @@
+:root {
+  --cream: #fdf6ea;
+  --white: #ffffff;
+  --brown: #3a2416;
+  --brown-2: #2a1810;
+  --wood: #3c2415;
+  --wood-dark: #2c1a10;
+  --gold: #f7b921;
+  --gold-2: #f4a418;
+  --orange: #e8720c;
+  --text-soft: #7a5c40;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--brown);
+  background: var(--cream);
+}
+
+h1,
+h2,
+h3,
+.brand,
+.headline {
+  font-family: "Baloo 2", sans-serif;
+}
+
+.script {
+  font-family: "Caveat", cursive;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ================= BOTÕES ================= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  background: var(--gold);
+  color: #3a2416;
+
+  font-weight: 700;
+  font-family: "Baloo 2", sans-serif;
+
+  padding: 14px 28px;
+
+  border-radius: 30px;
+  border: none;
+
+  font-size: 15px;
+
+  cursor: pointer;
+
+  box-shadow: 0 5px 0 #c98410;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #c98410;
+}
+
+.btn i {
+  font-size: 19px;
+}
+
+.btn-outline {
+  background: transparent;
+
+  border: 2px solid var(--brown);
+
+  color: var(--brown);
+
+  box-shadow: none;
+
+  padding: 12px 26px;
+}
+
+.btn-outline:hover {
+  background: var(--brown);
+  color: #fff;
+}
+
+/* ================= HEADER ================= */
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 14px 24px;
+
+  max-width: 1200px;
+  margin: 0 auto;
+
+  position: relative;
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  height: 60px;
+
+  width: auto;
+
+  object-fit: contain;
+
+  display: block;
+}
+
+.header-logo-circle {
+  height: 55px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.footer-logo-img {
+  height: 52px;
+}
+
+.logo-badge {
+  width: 60px;
+
+  height: 60px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(circle at 35% 30%, #ffd9b0, #f3a95a 75%);
+
+  border: 3px solid var(--brown);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 28px;
+
+  flex-shrink: 0;
+
+  overflow: hidden;
+}
+
+.logo-badge img {
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+}
+
+.logo-text {
+  margin-left: -5px;
+  white-space: nowrap;
+}
+
+.logo-text b {
+  display: block;
+  font-size: 16px;
+  color: var(--gold-2);
+  letter-spacing: 0.3px;
+  -webkit-text-stroke: 0;
+  white-space: nowrap;
+}
+
+.logo-text span {
+  display: block;
+  font-size: 8px;
+  color: #9b7a55;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-top: 1px;
+  white-space: nowrap;
+}
+
+.top-logo {
+  transform: translateX(-19px);
+}
+
+nav ul {
+  display: flex;
+
+  gap: 30px;
+
+  font-weight: 600;
+
+  font-size: 15px;
+
+  align-items: center;
+
+  position: relative;
+}
+
+nav a {
+  position: relative;
+
+  padding: 8px 18px;
+
+  color: #4a3220;
+
+  border-radius: 20px;
+
+  z-index: 2;
+
+  transition: color 0.2s ease;
+}
+
+nav a.active {
+  color: var(--brown);
+
+  font-weight: 700;
+}
+
+.nav-indicator {
+  position: absolute;
+
+  top: 0;
+
+  left: 0;
+
+  height: 100%;
+
+  background: var(--gold);
+
+  border-radius: 20px;
+
+  z-index: 1;
+
+  transition:
+    left 0.3s ease,
+    width 0.3s ease;
+
+  pointer-events: none;
+}
+
+.header-cta {
+  white-space: nowrap;
+}
+
+.nav-toggle {
+  display: none;
+
+  background: none;
+
+  border: none;
+
+  font-size: 26px;
+
+  cursor: pointer;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 70px 0 110px;
+
+  min-height: 480px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(28, 15, 6, 0.55) 0%,
+      rgba(28, 15, 6, 0.3) 55%,
+      rgba(28, 15, 6, 0.58) 100%
+    ),
+    url("../imagens/PORCO1.jpeg") center / cover no-repeat;
+}
+
+.hero-inner {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  min-height: 340px;
+
+  position: relative;
+}
+
+.hero-text {
+  position: relative;
+  max-width: 600px;
+  transform: translateX(-40px);
+}
+
+/* ================= IMAGEM NO LUGAR DA COROA ================= */
+
+.hero-text .crown {
+  width: 180px;
+  height: 80px;
+
+  margin: 0 auto 8px;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: visible;
+}
+
+.hero-text .crown img {
+  position: absolute;
+
+  width: 550px;
+  height: 240px;
+
+  max-width: none;
+
+  object-fit: contain;
+  object-position: center;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-58%, -68%);
+
+  display: block;
+}
+
+.hero-text h1 {
+  font-size: 46px;
+
+  line-height: 1.05;
+
+  color: #fff;
+
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+.hero-text .script {
+  color: var(--gold);
+
+  font-size: 64px;
+
+  line-height: 1;
+
+  display: block;
+
+  margin-top: -4px;
+
+  font-weight: 700;
+
+  transform: rotate(-2deg);
+}
+
+.hero-text p {
+  margin: 20px auto 24px;
+
+  font-size: 15px;
+
+  max-width: 380px;
+
+  color: #f1e6d6;
+
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+
+  transform: translate(-40px, 30px);
+}
+
+.btn-encomenda {
+  transform: translate(-40px, 30px);
+}
+
+.btn:hover {
+  transform: translate(-40px, 28px);
+}
+
+.wave {
+  position: absolute;
+
+  bottom: -2px;
+
+  left: 0;
+
+  width: 100%;
+
+  line-height: 0;
+}
+
+/* ================= PRODUTOS ================= */
+
+.products {
+  padding: 70px 0 50px;
+
+  background: var(--cream);
+}
+
+.section-title {
+  text-align: center;
+
+  margin-bottom: 34px;
+}
+
+.eyebrow-row {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 14px;
+
+  margin-bottom: 8px;
+
+  font-size: 20px;
+}
+
+.section-title h2 {
+  font-size: 32px;
+
+  color: var(--brown);
+
+  font-weight: 800;
+}
+
+.section-title p {
+  margin-top: 8px;
+
+  color: var(--text-soft);
+
+  font-size: 15px;
+}
+
+.section-title .script-inline {
+  font-family: "Caveat", cursive;
+
+  color: var(--orange);
+
+  font-size: 20px;
+
+  font-weight: 700;
+}
+
+/* GRADE DOS PRODUTOS */
+
+.product-row {
+  display: grid;
+
+  grid-template-columns: repeat(6, 1fr);
+
+  gap: 16px;
+}
+
+/* CARD */
+
+.product-card {
+  background: #fff;
+
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  text-align: center;
+
+  box-shadow: 0 4px 14px rgba(60, 30, 10, 0.08);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 8px 22px rgba(60, 30, 10, 0.13);
+}
+
+.product-card img {
+  height: 130px;
+
+  width: 100%;
+
+  object-fit: cover;
+}
+
+.product-card .info {
+  padding: 16px 14px 20px;
+}
+
+.product-card h3 {
+  font-family: "Baloo 2", sans-serif;
+
+  font-size: 15px;
+
+  letter-spacing: 0.3px;
+
+  margin-bottom: 8px;
+
+  color: var(--brown);
+}
+
+.product-card p {
+  font-size: 11.5px;
+
+  color: var(--text-soft);
+
+  line-height: 1.4;
+
+  min-height: 44px;
+}
+
+.price {
+  margin-top: 12px;
+
+  background: var(--gold);
+
+  color: var(--brown);
+
+  font-weight: 800;
+
+  font-size: 14px;
+
+  padding: 8px;
+
+  border-radius: 10px;
+
+  font-family: "Baloo 2", sans-serif;
+}
+
+.price small {
+  font-weight: 600;
+
+  font-size: 10px;
+}
+
+/* ================= PRODUTOS EXTRAS ================= */
+
+.extra-product {
+  display: none;
+}
+
+.extra-product.show-product {
+  display: block;
+}
+
+/* ================= BOTÃO TODOS ================= */
+
+.see-all {
+  text-align: center;
+
+  margin-top: 36px;
+}
+
+/* ================= FEATURES ================= */
+
+.features {
+  background: var(--white);
+
+  padding: 44px 0;
+
+  border-top: 1px solid #f1e4cc;
+
+  border-bottom: 1px solid #f1e4cc;
+}
+
+.features-row {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 24px;
+}
+
+.feature {
+  display: flex;
+
+  gap: 14px;
+
+  align-items: flex-start;
+}
+
+/* ================= FOTOS DAS FEATURES ================= */
+
+.feature-icon {
+  width: 70px;
+
+  height: 70px;
+
+  overflow: hidden;
+
+  flex-shrink: 0;
+}
+
+.feature-icon img {
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+.feature h4 {
+  font-family: "Baloo 2", sans-serif;
+
+  font-size: 15px;
+
+  margin-bottom: 4px;
+
+  color: var(--brown);
+}
+
+.feature p {
+  font-size: 12px;
+
+  color: var(--text-soft);
+}
+
+/* ================= RESELLER ================= */
+
+.reseller {
+  background:
+    linear-gradient(180deg, rgba(20, 10, 5, 0.5), rgba(20, 10, 5, 0.62)),
+    url("../imagens/PORCOREVENDEDOR.jpeg") center / cover no-repeat;
+
+  padding: 70px 0;
+
+  position: relative;
+
+  overflow: hidden;
+
+  color: #fff;
+}
+
+.reseller-grid {
+  display: grid;
+
+  grid-template-columns: 1.4fr 0.8fr;
+
+  gap: 36px;
+
+  align-items: center;
+}
+
+.reseller h2 {
+  font-size: 24px;
+
+  color: #fff;
+
+  font-weight: 600;
+}
+
+.reseller h2 .script {
+  color: var(--gold);
+
+  font-size: 52px;
+
+  display: block;
+
+  line-height: 1;
+
+  margin: 2px 0 8px;
+
+  font-weight: 700;
+}
+
+.reseller p {
+  margin: 6px 0 22px;
+
+  font-size: 14px;
+
+  color: #e8d9c4;
+
+  max-width: 360px;
+}
+
+.reseller-card {
+  background: #fdf6ea;
+
+  border-radius: 18px;
+
+  padding: 20px 18px;
+
+  color: var(--brown);
+
+  max-width: 300px;
+
+  margin-left: 98px;
+}
+
+.reseller-card h3 {
+  font-family: "Baloo 2", sans-serif;
+
+  font-size: 15px;
+
+  margin-bottom: 16px;
+
+  letter-spacing: 0.3px;
+}
+
+.reseller-point {
+  display: flex;
+
+  gap: 12px;
+
+  margin-bottom: 16px;
+}
+
+.reseller-point .ic {
+  width: 36px;
+
+  height: 36px;
+
+  border-radius: 10px;
+
+  background: #fbe3b8;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 17px;
+
+  flex-shrink: 0;
+}
+
+.reseller-point b {
+  display: block;
+
+  font-size: 13px;
+
+  margin-bottom: 2px;
+
+  font-family: "Baloo 2", sans-serif;
+}
+
+.reseller-point span {
+  font-size: 11.5px;
+
+  color: var(--text-soft);
+}
+
+.reseller-bubble {
+  position: absolute;
+
+  top: 20px;
+
+  right: 480px;
+
+  background: var(--gold);
+
+  color: var(--brown);
+
+  font-family: "Baloo 2", sans-serif;
+
+  font-weight: 700;
+
+  font-size: 12.5px;
+
+  text-align: center;
+
+  padding: 16px;
+
+  border-radius: 50%;
+
+  width: 150px;
+
+  height: 150px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  line-height: 1.25;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+
+  transform: rotate(-6deg);
+}
+
+.reseller-bubble::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: 20%;
+
+  left: -6px;
+
+  border-width: 12px 16px 12px 0;
+
+  border-style: solid;
+
+  border-color: transparent var(--gold) transparent transparent;
+
+  transform: rotate(-20deg);
+}
+
+/* ================= TESTEMUNHOS ================= */
+
+.testimonials {
+  padding: 70px 0;
+
+  background: var(--cream);
+}
+
+.testi-row {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+.testi-card {
+  background: #fff;
+
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  display: flex;
+
+  box-shadow: 0 4px 14px rgba(60, 30, 10, 0.07);
+}
+
+.testi-card img {
+  width: 110px;
+
+  height: auto;
+
+  object-fit: cover;
+
+  flex-shrink: 0;
+}
+
+.testi-body {
+  padding: 16px;
+
+  font-size: 12.5px;
+}
+
+.stars {
+  color: var(--gold-2);
+
+  font-size: 13px;
+
+  margin-bottom: 6px;
+}
+
+.testi-body p {
+  color: #5c4530;
+
+  font-style: italic;
+
+  line-height: 1.4;
+
+  margin-bottom: 8px;
+}
+
+.testi-body .who {
+  font-weight: 700;
+
+  color: var(--brown);
+
+  font-size: 12px;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+  background: var(--wood-dark);
+
+  color: #e8d9c4;
+
+  padding: 56px 0 20px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  gap: 30px;
+  padding-bottom: 30px;
+}
+
+.copyright {
+  width: 100%;
+  background: var(--wood-dark);
+  color: #9a8267;
+  text-align: center;
+  font-size: 12px;
+  padding: 18px 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer-brand {
+  display: flex;
+
+  gap: 12px;
+
+  align-items: flex-start;
+
+  flex-direction: column;
+}
+
+.footer-logo-circle {
+  height: 70px;
+
+  width: auto;
+
+  object-fit: contain;
+
+  flex-shrink: 0;
+}
+
+.footer-brand .logo {
+  margin-bottom: 4px;
+}
+
+.footer-brand p {
+  font-size: 13px;
+
+  margin-top: 6px;
+
+  color: #c9b499;
+
+  line-height: 1.5;
+}
+
+.social-row {
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 14px;
+}
+
+.social-row a {
+  width: 34px;
+
+  height: 34px;
+
+  border-radius: 50%;
+
+  background: var(--gold);
+
+  color: var(--brown);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 15px;
+}
+
+footer h4 {
+  font-family: "Baloo 2", sans-serif;
+
+  font-size: 14px;
+
+  margin-bottom: 16px;
+
+  color: #fff;
+
+  letter-spacing: 0.3px;
+}
+
+footer ul li {
+  margin-bottom: 10px;
+
+  font-size: 13px;
+
+  color: #c9b499;
+}
+
+footer .contact-item {
+  display: flex;
+
+  gap: 8px;
+
+  align-items: center;
+
+  font-size: 13px;
+
+  margin-bottom: 12px;
+
+  color: #c9b499;
+}
+
+footer .contact-item i {
+  color: #25d366;
+
+  font-size: 17px;
+}
+
+.pay-icons {
+  display: flex;
+
+  gap: 8px;
+
+  margin-top: 6px;
+
+  flex-wrap: wrap;
+}
+
+.pay-icons span {
+  background: #fff;
+
+  color: var(--brown);
+
+  font-weight: 800;
+
+  font-size: 11px;
+
+  padding: 8px 12px;
+
+  border-radius: 8px;
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width: 980px) {
+  .hero-text p {
+    margin-left: auto;
+
+    margin-right: auto;
+  }
+
+  .product-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .features-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .reseller-grid {
+    grid-template-columns: 1fr;
+
+    text-align: center;
+  }
+
+  .reseller p {
+    margin-left: auto;
+
+    margin-right: auto;
+  }
+
+  .reseller-card {
+    margin: 0 auto;
+  }
+
+  .testi-row {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ================= CELULAR ================= */
+
+@media (max-width: 640px) {
+  nav {
+    display: none;
+  }
+
+  .header-cta {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .hero-text h1 {
+    font-size: 32px;
+  }
+
+  .hero-text .script {
+    font-size: 46px;
+  }
+
+  .product-row {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 12px;
+  }
+
+  .product-card img {
+    height: 120px;
+  }
+
+  .product-card .info {
+    padding: 12px 10px 15px;
+  }
+
+  .product-card h3 {
+    font-size: 14px;
+  }
+
+  .product-card p {
+    font-size: 10.5px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testi-card {
+    flex-direction: column;
+  }
+
+  .testi-card img {
+    width: 100%;
+
+    height: 140px;
+  }
+
+  /* FOTOS DAS FEATURES NO CELULAR */
+
+  .feature-icon {
+    width: 65px;
+    height: 65px;
+  }
+}
+
+/* ================= MENU MOBILE ================= */
+
+@media (max-width: 640px) {
+  nav.nav-open {
+    display: flex;
+
+    position: absolute;
+
+    top: 78px;
+
+    left: 0;
+
+    right: 0;
+
+    background: var(--white);
+
+    flex-direction: column;
+
+    padding: 20px 24px;
+
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+
+    z-index: 50;
+  }
+
+  nav.nav-open ul {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 14px;
+  }
+
+  .header-cta.cta-open {
+    display: inline-flex;
+
+    position: absolute;
+
+    top: 132px;
+
+    right: 24px;
+
+    z-index: 51;
+  }
+}
+
+/* =========================================================
+   CHAMAR ATENÇÃO PARA O BOTÃO "FAÇA SUA ENCOMENDA"
+   ========================================================= */
+
+/* =====================================================
+   EFEITO DE DESTAQUE - BOTÃO FAÇA SUA ENCOMENDA
+   MESMO EFEITO DO BOTÃO REVENDEDOR
+   ===================================================== */
+
+.btn-encomenda.chamar-encomenda {
+  animation: destaqueEncomenda 0.7s ease-in-out infinite;
+  position: relative;
+  z-index: 10;
+}
+
+@keyframes destaqueEncomenda {
+  0% {
+    transform: translate(-40px, 30px) scale(1);
+    box-shadow: 0 5px 0 #c98410;
+  }
+
+  50% {
+    transform: translate(-40px, 30px) scale(1.1);
+    box-shadow:
+      0 0 0 8px rgba(243, 180, 0, 0.2),
+      0 0 30px rgba(243, 180, 0, 0.9);
+  }
+
+  100% {
+    transform: translate(-40px, 30px) scale(1);
+    box-shadow: 0 5px 0 #c98410;
+  }
+}
+
+/* ================= BOTÃO REVENDEDOR ================= */
+
+.btn-revendedor {
+  transform: none;
+}
+
+.btn-revendedor:hover {
+  transform: translateY(-2px);
+}
+
+.btn-revendedor:active {
+  transform: translateY(2px);
+}
+
+/* ================= BOTÃO VER TODOS OS PRODUTOS ================= */
+
+.btn-ver-produtos {
+  transform: none;
+}
+
+.btn-ver-produtos:hover {
+  transform: translateY(-2px);
+}
+
+.btn-ver-produtos:active {
+  transform: translateY(2px);
+}
+
+/* CORREÇÃO DO BOTÃO FALE CONOSCO */
+.header-cta:hover {
+  transform: translateY(-2px);
+}
+
+/* =====================================================
+   DESTAQUE DO BOTÃO DE REVENDEDOR
+   ===================================================== */
+
+.btn-revendedor.chamar-atencao {
+  animation: destaqueRevendedor 0.7s ease-in-out infinite;
+  position: relative;
+  z-index: 10;
+}
+
+@keyframes destaqueRevendedor {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(243, 180, 0, 0.8);
+  }
+
+  50% {
+    transform: scale(1.1);
+    box-shadow:
+      0 0 0 8px rgba(243, 180, 0, 0.2),
+      0 0 30px rgba(243, 180, 0, 0.9);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(243, 180, 0, 0);
+  }
+}
+
+/* =========================================================
+   CARRINHO DE COMPRAS
+   ========================================================= */
+
+/* BOTÃO FLUTUANTE */
+
+.cart-button {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+
+  width: 62px;
+  height: 62px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: var(--gold);
+  color: var(--brown);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 22px;
+
+  cursor: pointer;
+
+  z-index: 9998;
+
+  box-shadow:
+    0 6px 0 #c98410,
+    0 8px 25px rgba(0, 0, 0, 0.22);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.cart-button:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 9px 0 #c98410,
+    0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+.cart-button:active {
+  transform: translateY(3px);
+
+  box-shadow:
+    0 3px 0 #c98410,
+    0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.cart-button span {
+  position: absolute;
+
+  top: -5px;
+  right: -5px;
+
+  min-width: 25px;
+  height: 25px;
+
+  padding: 0 6px;
+
+  border-radius: 20px;
+
+  background: #e53935;
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  border: 3px solid var(--cream);
+}
+
+/* BOTÃO ADICIONAR */
+
+.btn-add-cart {
+  width: 100%;
+
+  margin-top: 10px;
+
+  padding: 9px 8px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: var(--brown);
+  color: #fff;
+
+  font-family: "Baloo 2", sans-serif;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease;
+}
+
+.btn-add-cart:hover {
+  background: var(--orange);
+
+  transform: translateY(-2px);
+}
+
+.btn-add-cart:active {
+  transform: translateY(1px);
+}
+
+.btn-add-cart i {
+  font-size: 13px;
+}
+
+/* OVERLAY */
+
+.cart-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.5);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+
+  z-index: 9999;
+}
+
+.cart-overlay.cart-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* PAINEL */
+
+.cart-panel {
+  position: fixed;
+
+  top: 0;
+  right: 0;
+
+  width: min(430px, 100%);
+
+  height: 100vh;
+
+  background: var(--cream);
+
+  z-index: 10000;
+
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: -8px 0 30px rgba(0, 0, 0, 0.2);
+
+  transform: translateX(100%);
+
+  transition: transform 0.35s ease;
+}
+
+.cart-panel.cart-open {
+  transform: translateX(0);
+}
+
+/* CABEÇALHO */
+
+.cart-header {
+  padding: 22px 22px 18px;
+
+  background: var(--wood-dark);
+
+  color: #fff;
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  flex-shrink: 0;
+}
+
+.cart-header h2 {
+  font-family: "Baloo 2", sans-serif;
+
+  font-size: 22px;
+
+  line-height: 1;
+
+  margin-bottom: 4px;
+
+  color: #fff;
+}
+
+.cart-header span {
+  font-size: 11px;
+
+  color: #c9b499;
+}
+
+.cart-close {
+  width: 40px;
+  height: 40px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  color: #fff;
+
+  font-size: 28px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+.cart-close:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* PRODUTOS DO CARRINHO */
+
+.cart-items {
+  flex: 1;
+
+  overflow-y: auto;
+
+  padding: 18px;
+}
+
+.cart-item {
+  background: #fff;
+
+  border-radius: 14px;
+
+  padding: 12px;
+
+  margin-bottom: 12px;
+
+  display: grid;
+
+  grid-template-columns: 68px 1fr auto;
+
+  gap: 12px;
+
+  align-items: center;
+
+  box-shadow: 0 3px 12px rgba(60, 30, 10, 0.08);
+}
+
+.cart-item-image {
+  width: 68px;
+  height: 68px;
+
+  border-radius: 10px;
+
+  object-fit: cover;
+}
+
+.cart-item-info {
+  min-width: 0;
+}
+
+.cart-item-info h3 {
+  font-family: "Baloo 2", sans-serif;
+
+  color: var(--brown);
+
+  font-size: 14px;
+
+  margin-bottom: 2px;
+}
+
+.cart-item-price {
+  font-size: 11px;
+
+  color: var(--text-soft);
+
+  margin-bottom: 7px;
+}
+
+.cart-item-subtotal {
+  font-size: 13px;
+
+  color: var(--brown);
+
+  font-weight: 800;
+
+  margin-top: 6px;
+}
+
+.cart-quantity {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+}
+
+.cart-quantity button {
+  width: 28px;
+  height: 28px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #f4e5cc;
+
+  color: var(--brown);
+
+  cursor: pointer;
+
+  font-weight: 800;
+
+  font-size: 15px;
+}
+
+.cart-quantity button:hover {
+  background: var(--gold);
+}
+
+.cart-quantity span {
+  min-width: 20px;
+
+  text-align: center;
+
+  font-size: 13px;
+
+  font-weight: 800;
+}
+
+.cart-remove {
+  border: none;
+
+  background: transparent;
+
+  color: #c62828;
+
+  cursor: pointer;
+
+  font-size: 15px;
+
+  margin-top: 7px;
+}
+
+.cart-remove:hover {
+  color: #e53935;
+}
+
+/* CARRINHO VAZIO */
+
+.cart-empty {
+  height: 100%;
+
+  min-height: 350px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  color: var(--text-soft);
+
+  padding: 30px;
+}
+
+.cart-empty > i {
+  font-size: 50px;
+
+  color: var(--gold);
+
+  margin-bottom: 16px;
+}
+
+.cart-empty h3 {
+  font-family: "Baloo 2", sans-serif;
+
+  color: var(--brown);
+
+  font-size: 20px;
+
+  margin-bottom: 5px;
+}
+
+.cart-empty p {
+  font-size: 12px;
+
+  margin-bottom: 20px;
+}
+
+/* RODAPÉ DO CARRINHO */
+
+.cart-footer {
+  background: #fff;
+
+  padding: 18px;
+
+  border-top: 1px solid #eadbc4;
+
+  flex-shrink: 0;
+}
+
+.cart-total {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 14px;
+}
+
+.cart-total span {
+  font-family: "Baloo 2", sans-serif;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  color: var(--brown);
+}
+
+.cart-total strong {
+  font-family: "Baloo 2", sans-serif;
+
+  font-size: 24px;
+
+  color: var(--brown);
+}
+
+.checkout-button {
+  width: 100%;
+
+  background: #25d366;
+
+  color: #fff;
+
+  box-shadow: 0 5px 0 #159447;
+
+  font-size: 14px;
+}
+
+.checkout-button:hover {
+  background: #20bd5b;
+
+  transform: translateY(-2px);
+}
+
+.checkout-button:disabled {
+  background: #cfcfcf;
+
+  color: #777;
+
+  box-shadow: 0 4px 0 #aaa;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+.clear-cart {
+  width: 100%;
+
+  border: none;
+
+  background: transparent;
+
+  color: #a34b3e;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  padding: 10px;
+
+  margin-top: 4px;
+
+  cursor: pointer;
+}
+
+.clear-cart:hover {
+  color: #d32f2f;
+
+  text-decoration: underline;
+}
+
+/* ANIMAÇÃO DO CONTADOR */
+
+.cart-button.cart-bump {
+  animation: cartBump 0.45s ease;
+}
+
+@keyframes cartBump {
+  0% {
+    transform: scale(1);
+  }
+
+  45% {
+    transform: scale(1.15);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* =========================================================
+   CARRINHO NO CELULAR
+   ========================================================= */
+
+@media (max-width: 640px) {
+  .cart-button {
+    right: 16px;
+    bottom: 16px;
+
+    width: 58px;
+    height: 58px;
+  }
+
+  .cart-panel {
+    width: 100%;
+  }
+
+  .cart-header {
+    padding: 18px;
+  }
+
+  .cart-items {
+    padding: 14px;
+  }
+
+  .cart-item {
+    grid-template-columns: 60px 1fr;
+
+    gap: 10px;
+
+    position: relative;
+
+    padding-right: 12px;
+  }
+
+  .cart-item-image {
+    width: 60px;
+    height: 60px;
+  }
+
+  .cart-item-actions {
+    grid-column: 2;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+  }
+
+  .cart-remove {
+    position: absolute;
+
+    top: 10px;
+    right: 10px;
+
+    margin: 0;
+  }
+
+  .cart-footer {
+    padding: 15px;
+  }
+}
+
+/* ================= BOTÃO VER PRODUTOS DO CARRINHO ================= */
+
+#cart-go-products {
+  transform: none;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+#cart-go-products:hover {
+  transform: none;
+}
+
+#cart-go-products:active {
+  transform: none;
+}
+
+/* ================= ÍCONES DOS CONTATOS ================= */
+
+footer .contact-item .fa-whatsapp {
+  color: #25d366;
+}
+
+footer .contact-item .fa-instagram {
+  color: #e1306c;
+}
+
+footer .contact-item .fa-envelope {
+  color: #384ad4;
+}
+/* ================= MOVER ÁREA CONTATO ================= */
+
+.footer-grid > div:nth-child(3) {
+  transform: translateX(170px);
+}
+/* ================= MOVER ÁREA LINKS ================= */
+
+.footer-grid > div:nth-child(2) {
+  transform: translateX(120px);
+}

@@ -1,0 +1,743 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Produtos Salvador | Rei do Torresmo</title>
+
+    <!-- ÍCONE DA ABA DO NAVEGADOR -->
+    <link rel="icon" type="image/png" href="imagens/PORCOJOIA.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Caveat:wght@600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ================= HEADER ================= -->
+
+    <header>
+      <div class="logo top-logo">
+        <img
+          src="imagens/PORCOCERTO1.png"
+          alt="Produtos Salvador"
+          class="header-logo-circle"
+        />
+
+        <div class="logo-text">
+          <b>PRODUTOS SALVADOR</b>
+          <span>REI DO TORRESMO</span>
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <span class="nav-indicator"></span>
+
+          <li>
+            <a href="#" class="active">Home</a>
+          </li>
+
+          <li>
+            <a href="#produtos">Produtos</a>
+          </li>
+
+          <li>
+            <a href="#encomendas">Encomendas</a>
+          </li>
+
+          <li>
+            <a href="#revendedor">Seja Revendedor</a>
+          </li>
+
+          <li>
+            <a href="#contato">Contato</a>
+          </li>
+        </ul>
+      </nav>
+
+      <a href="#contato" class="btn header-cta">💬 Fale Conosco</a>
+
+      <button class="nav-toggle" type="button">☰</button>
+    </header>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <div class="crown">
+            <img src="imagens/SABORCONQUISTA.png" alt="Produtos Salvador" />
+          </div>
+
+          <p>
+            Torresmo crocante e irresistível, feito com qualidade e dedicação
+            para você e sua família.
+          </p>
+
+          <a
+            id="botao-encomenda"
+            href="https://wa.me/351913667138?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Produtos%20Salvador%20e%20gostaria%20de%20fazer%20uma%20encomenda.%20Gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20e%20fazer%20meu%20pedido."
+            class="btn btn-encomenda"
+            target="_blank"
+          >
+            <i class="fa-brands fa-whatsapp"></i>
+            FAÇA SUA ENCOMENDA
+          </a>
+        </div>
+      </div>
+
+      <svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path
+          fill="#f7b921"
+          d="M0,40 C360,90 1080,-10 1440,40 L1440,80 L0,80 Z"
+        ></path>
+      </svg>
+    </section>
+
+    <!-- ================= PRODUTOS ================= -->
+
+    <section class="products" id="produtos">
+      <div class="container">
+        <div class="section-title">
+          <div class="eyebrow-row">➜ 👑 ➜</div>
+
+          <h2>NOSSOS PRODUTOS</h2>
+
+          <p>
+            Escolha seu favorito e descubra o sabor que conquistou
+            <span class="script-inline">Portugal!</span>
+          </p>
+        </div>
+
+        <div class="product-row">
+          <!-- PRODUTO 1 -->
+          <div
+            class="product-card"
+            data-product="TORRESMO"
+            data-price="4.00"
+            data-unit="/ 200g"
+          >
+            <img src="imagens/Torresmo.jpeg" alt="Torresmo" />
+
+            <div class="info">
+              <h3>TORRESMO</h3>
+
+              <p>Crocante e saboroso, feito com pele suína selecionada.</p>
+
+              <div class="price">€4,00 <small>/ 200g</small></div>
+
+              <button class="btn-add-cart" type="button">
+                <i class="fa-solid fa-cart-plus"></i>
+                ADICIONAR
+              </button>
+            </div>
+          </div>
+
+          <!-- PRODUTO 2 -->
+          <div
+            class="product-card"
+            data-product="COXINHA"
+            data-price="7.00"
+            data-unit="/ 20 un."
+          >
+            <img src="imagens/coxinha.jpeg" alt="Coxinha" />
+
+            <div class="info">
+              <h3>COXINHA</h3>
+
+              <p>
+                Recheio cremoso de frango temperado, envolto em massa
+                irresistível.
+              </p>
+
+              <div class="price">€7,00 <small>/ 20 un.</small></div>
+
+              <button class="btn-add-cart" type="button">
+                <i class="fa-solid fa-cart-plus"></i>
+                ADICIONAR
+              </button>
+            </div>
+          </div>
+
+          <!-- PRODUTO 3 -->
+          <div
+            class="product-card"
+            data-product="COXINHA GRANDE"
+            data-price="3.50"
+            data-unit="/ un."
+          >
+            <img src="imagens/coxinha grande.jpeg" alt="Coxinha grande" />
+
+            <div class="info">
+              <h3>COXINHA GRANDE</h3>
+
+              <p>
+                Massa leve e recheio cremoso e saboroso, perfeito para qualquer
+                ocasião.
+              </p>
+
+              <div class="price">€3,50 <small>/ un.</small></div>
+
+              <button class="btn-add-cart" type="button">
+                <i class="fa-solid fa-cart-plus"></i>
+                ADICIONAR
+              </button>
+            </div>
+          </div>
+
+          <!-- PRODUTO 4 -->
+          <div
+            class="product-card"
+            data-product="BOLINHA DE QUEIJO"
+            data-price="7.00"
+            data-unit="/ 20 un."
+          >
+            <img src="imagens/bolinhaqueijo2.jpeg" alt="Bolinha de queijo" />
+
+            <div class="info">
+              <h3>BOLINHA DE QUEIJO</h3>
+
+              <p>Queijo selecionado e muito sabor em cada mordida.</p>
+
+              <div class="price">€7,00 <small>/ 20 un.</small></div>
+
+              <button class="btn-add-cart" type="button">
+                <i class="fa-solid fa-cart-plus"></i>
+                ADICIONAR
+              </button>
+            </div>
+          </div>
+
+          <!-- PRODUTO 5 -->
+          <div
+            class="product-card"
+            data-product="PÃO DE QUEIJO"
+            data-price="7.00"
+            data-unit="/ 20 un."
+          >
+            <img src="imagens/pao de queijo.jpeg" alt="Pão de queijo" />
+
+            <div class="info">
+              <h3>PÃO DE QUEIJO</h3>
+
+              <p>O clássico mineiro que conquistou o Brasil e o mundo.</p>
+
+              <div class="price">€7,00 <small>/ 20 un.</small></div>
+
+              <button class="btn-add-cart" type="button">
+                <i class="fa-solid fa-cart-plus"></i>
+                ADICIONAR
+              </button>
+            </div>
+          </div>
+
+          <!-- PRODUTO 6 -->
+          <div
+            class="product-card"
+            data-product="ACARAJÉ"
+            data-price="8.00"
+            data-unit="/ un."
+          >
+            <img src="imagens/acaraje3.jpeg" alt="Acarajé" />
+
+            <div class="info">
+              <h3>ACARAJÉ</h3>
+
+              <p>
+                Tradicional receita baiana com todo o sabor que você merece.
+              </p>
+
+              <div class="price">€8,00 <small>/ un.</small></div>
+
+              <button class="btn-add-cart" type="button">
+                <i class="fa-solid fa-cart-plus"></i>
+                ADICIONAR
+              </button>
+            </div>
+          </div>
+
+          <!-- PRODUTO EXTRA 1 -->
+          <div
+            class="product-card extra-product"
+            data-product="PAÇOCA"
+            data-price="4.00"
+            data-unit="/ 7 un."
+          >
+            <img src="imagens/paçoca.jpeg" alt="Paçoca" />
+
+            <div class="info">
+              <h3>PAÇOCA</h3>
+
+              <p>Docinha, saborosa e irresistível.</p>
+
+              <div class="price">€4,00 <small>/ 7 un.</small></div>
+
+              <button class="btn-add-cart" type="button">
+                <i class="fa-solid fa-cart-plus"></i>
+                ADICIONAR
+              </button>
+            </div>
+          </div>
+
+          <!-- PRODUTO EXTRA 2 -->
+          <div
+            class="product-card extra-product"
+            data-product="EMPADÃO"
+            data-price="20.00"
+            data-unit="/ 24x14cm."
+          >
+            <img src="imagens/empadao.jpeg" alt="Empadão" />
+
+            <div class="info">
+              <h3>EMPADÃO</h3>
+
+              <p>Massa leve com recheio delicioso e bem temperado.</p>
+
+              <div class="price">€20,00 <small>/ 24x14cm.</small></div>
+
+              <button class="btn-add-cart" type="button">
+                <i class="fa-solid fa-cart-plus"></i>
+                ADICIONAR
+              </button>
+            </div>
+          </div>
+
+          <!-- PRODUTO EXTRA 3 -->
+          <div
+            class="product-card extra-product"
+            data-product="PÃO CASEIRO"
+            data-price="8.00"
+            data-unit="/ 10 un."
+          >
+            <img src="imagens/paodoce.jpeg" alt="Pão caseiro" />
+
+            <div class="info">
+              <h3>PÃO CASEIRO</h3>
+
+              <p>Sabor de casa em cada pedaço.</p>
+
+              <div class="price">€8,00 <small>/ 10 un.</small></div>
+
+              <button class="btn-add-cart" type="button">
+                <i class="fa-solid fa-cart-plus"></i>
+                ADICIONAR
+              </button>
+            </div>
+          </div>
+
+          <!-- PRODUTO EXTRA 4 -->
+          <div
+            class="product-card extra-product"
+            data-product="QUIBE"
+            data-price="8.00"
+            data-unit="/ 20 un."
+          >
+            <img src="imagens/KIBE.jpeg" alt="Quibe" />
+
+            <div class="info">
+              <h3>QUIBE</h3>
+
+              <p>Douradinho, crocante e saboroso!</p>
+
+              <div class="price">€8,00 <small>/ 20 un.</small></div>
+
+              <button class="btn-add-cart" type="button">
+                <i class="fa-solid fa-cart-plus"></i>
+                ADICIONAR
+              </button>
+            </div>
+          </div>
+
+          <!-- PRODUTO EXTRA 5 -->
+          <div
+            class="product-card extra-product"
+            data-product="RISSÓIS"
+            data-price="7.00"
+            data-unit="/ 20 un."
+          >
+            <img src="imagens/RISSOES.jpeg" alt="Rissóis" />
+
+            <div class="info">
+              <h3>RISSÓIS</h3>
+
+              <p>Crocante, recheado e perfeito para qualquer momento.</p>
+
+              <div class="price">€7,00 <small>/ 20 un.</small></div>
+
+              <button class="btn-add-cart" type="button">
+                <i class="fa-solid fa-cart-plus"></i>
+                ADICIONAR
+              </button>
+            </div>
+          </div>
+
+          <!-- PRODUTO EXTRA 6 -->
+          <div
+            class="product-card extra-product"
+            data-product="SEQUILHOS"
+            data-price="5.00"
+            data-unit="/ 20 un."
+          >
+            <img src="imagens/SEQUILHOS.jpeg" alt="Sequilhos" />
+
+            <div class="info">
+              <h3>SEQUILHOS</h3>
+
+              <p>Sabores: Leite condensado • Goiabada • Chocolate • Limão.</p>
+
+              <div class="price">€5,00 <small>/ 20 un.</small></div>
+
+              <button class="btn-add-cart" type="button">
+                <i class="fa-solid fa-cart-plus"></i>
+                ADICIONAR
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="see-all">
+          <button
+            type="button"
+            id="btn-ver-produtos"
+            class="btn btn-outline btn-ver-produtos"
+          >
+            VER TODOS OS PRODUTOS →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FEATURES ================= -->
+
+    <section class="features">
+      <div class="container features-row">
+        <div class="feature">
+          <div class="feature-icon">
+            <img src="imagens/CELOVERIFICADO.png" alt="Qualidade" />
+          </div>
+
+          <div>
+            <h4>Qualidade</h4>
+            <p>Ingredientes selecionados e produção artesanal.</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">
+            <img src="imagens/CHAPEL.png" alt="Sabor" />
+          </div>
+
+          <div>
+            <h4>Sabor</h4>
+            <p>Receitas tradicionais que você ama.</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">
+            <img src="imagens/ENTREGA2.png" alt="Entrega" />
+          </div>
+
+          <div>
+            <h4>Entrega</h4>
+            <p>Encomende com praticidade e segurança.</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">
+            <img src="imagens/CORACAO2.png" alt="Feito com carinho" />
+          </div>
+
+          <div>
+            <h4>Feito com carinho</h4>
+            <p>Porque você merece o melhor!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= REVENDEDOR ================= -->
+
+    <section class="reseller" id="revendedor">
+      <div class="container reseller-grid">
+        <div>
+          <h2>
+            SEJA NOSSO
+            <span class="script"> REVENDEDOR! </span>
+          </h2>
+
+          <p>
+            Transforme sabor em lucro e conquiste sua independência financeira!
+          </p>
+
+          <a
+            href="https://wa.me/351913667138?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Produtos%20Salvador%20e%20tenho%20interesse%20em%20ser%20revendedor.%20Gostaria%20de%20saber%20mais%20sobre%20os%20produtos."
+            class="btn btn-revendedor"
+            id="botao-revendedor"
+            target="_blank"
+          >
+            💬 QUERO SER REVENDEDOR
+          </a>
+        </div>
+
+        <div class="reseller-bubble">
+          Produtos de alta aceitação e excelente lucratividade!
+        </div>
+
+        <div class="reseller-card">
+          <h3>POR QUE SER REVENDEDOR?</h3>
+
+          <div class="reseller-point">
+            <div class="ic">💰</div>
+            <div>
+              <b>Renda extra ou principal</b>
+              <span>Trabalhe do seu jeito e fature alto.</span>
+            </div>
+          </div>
+
+          <div class="reseller-point">
+            <div class="ic">📈</div>
+            <div>
+              <b>Mercado em crescimento</b>
+              <span>Petiscos brasileiros são paixão em qualquer lugar.</span>
+            </div>
+          </div>
+
+          <div class="reseller-point">
+            <div class="ic">📦</div>
+            <div>
+              <b>Baixo investimento</b>
+              <span>Comece pequeno e tenha grandes resultados.</span>
+            </div>
+          </div>
+
+          <div class="reseller-point">
+            <div class="ic">🤝</div>
+            <div>
+              <b>Suporte e confiança</b>
+              <span>Conte com nosso apoio em cada passo.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= DEPOIMENTOS ================= -->
+
+    <section class="testimonials">
+      <div class="container">
+        <div class="section-title">
+          <div class="eyebrow-row">➜ 👑 ➜</div>
+          <h2>O QUE NOSSOS CLIENTES DIZEM</h2>
+        </div>
+
+        <div class="testi-row">
+          <div class="testi-card">
+            <img src="imagens/MULHER1.jpeg" alt="Ana Souza" />
+
+            <div class="testi-body">
+              <div class="stars">★★★★★</div>
+
+              <p>
+                "Melhor torresmo que já comi em Portugal. Crocante, saboroso e
+                chega super fresquinho. Recomendo demais!"
+              </p>
+
+              <div class="who">— Ana Souza</div>
+            </div>
+          </div>
+
+          <div class="testi-card">
+            <img src="imagens/HOMI1.jpeg" alt="Ricardo Lima" />
+
+            <div class="testi-body">
+              <div class="stars">★★★★★</div>
+
+              <p>
+                "Tudo maravilhoso! Coxinha, bolinha de queijo e torresmo... não
+                tem como escolher só um!"
+              </p>
+
+              <div class="who">— Ricardo Lima</div>
+            </div>
+          </div>
+
+          <div class="testi-card">
+            <img src="imagens/morena.jpeg" alt="Mariana" />
+
+            <div class="testi-body">
+              <div class="stars">★★★★★</div>
+
+              <p>
+                "Produtos de excelente qualidade e o atendimento é 10! Já virei
+                cliente fiel!"
+              </p>
+
+              <div class="who">— Mariana Alves</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer id="contato">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <img
+              src="imagens/PORCOCERTO1.png"
+              alt="Produtos Salvador"
+              class="footer-logo-circle"
+            />
+
+            <div class="logo-text">
+              <b style="color: var(--gold); -webkit-text-stroke: 0">
+                PRODUTOS SALVADOR
+              </b>
+
+              <span style="color: #c9b499"> REI DO TORRESMO </span>
+            </div>
+          </div>
+
+          <p>
+            Levamos até você o verdadeiro sabor da comida brasileira, com
+            qualidade, carinho e aquele toque especial.
+          </p>
+        </div>
+
+        <div>
+          <h4>LINKS</h4>
+
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#produtos">Produtos</a></li>
+            <li><a href="#encomendas">Encomendas</a></li>
+            <li><a href="#revendedor">Seja Revendedor</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>CONTATO</h4>
+
+          <a
+            href="https://wa.me/351913667138"
+            target="_blank"
+            class="contact-item"
+          >
+            <i class="fa-brands fa-whatsapp"></i>
+            +351 913 667 138
+          </a>
+
+          <a
+            href="https://www.instagram.com/produtos_salvador/"
+            target="_blank"
+            class="contact-item"
+          >
+            <i class="fa-brands fa-instagram"></i>
+            @produtos_salvador
+          </a>
+
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=produtossalvador@gmail.com"
+            target="_blank"
+            class="contact-item"
+          >
+            <i class="fa-solid fa-envelope"></i>
+            produtossalvador@gmail.com
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- COPYRIGHT -->
+
+    <div class="copyright">
+      © 2024 Produtos Salvador - Todos os direitos reservados.
+    </div>
+
+    <!-- ================= CARRINHO ================= -->
+
+    <button
+      type="button"
+      id="cart-button"
+      class="cart-button"
+      aria-label="Abrir carrinho"
+    >
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span id="cart-count">0</span>
+    </button>
+
+    <div id="cart-overlay" class="cart-overlay"></div>
+
+    <aside id="cart-panel" class="cart-panel">
+      <div class="cart-header">
+        <div>
+          <h2>MEU CARRINHO</h2>
+          <span id="cart-items-text">0 produtos</span>
+        </div>
+
+        <button
+          type="button"
+          id="cart-close"
+          class="cart-close"
+          aria-label="Fechar carrinho"
+        >
+          ×
+        </button>
+      </div>
+
+      <div id="cart-items" class="cart-items">
+        <div class="cart-empty">
+          <i class="fa-solid fa-cart-shopping"></i>
+
+          <h3>Seu carrinho está vazio</h3>
+
+          <p>Adicione os produtos que deseja encomendar.</p>
+
+          <button type="button" id="cart-go-products" class="btn">
+            VER PRODUTOS
+          </button>
+        </div>
+      </div>
+
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>TOTAL</span>
+          <strong id="cart-total">€0,00</strong>
+        </div>
+
+        <button
+          type="button"
+          id="checkout-whatsapp"
+          class="btn checkout-button"
+          disabled
+        >
+          <i class="fa-brands fa-whatsapp"></i>
+          FINALIZAR PELO WHATSAPP
+        </button>
+
+        <button type="button" id="clear-cart" class="clear-cart">
+          LIMPAR CARRINHO
+        </button>
+      </div>
+    </aside>
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
