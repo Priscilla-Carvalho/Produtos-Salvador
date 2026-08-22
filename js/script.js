@@ -782,7 +782,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const url = "https://wa.me/" + whatsappNumber + "?text=" + mensagem;
 
-      window.open(url, "_blank");
+      if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        window.location.href = url;
+      } else {
+        window.open(url, "_blank");
+      }
     });
   }
 
