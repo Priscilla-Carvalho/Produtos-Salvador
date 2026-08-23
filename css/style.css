@@ -2559,11 +2559,9 @@ footer .contact-item .fa-envelope {
 }
 
 @media (max-width: 640px) {
-  /* =====================================================
-     TROCAR FOTO DO HERO
-     ===================================================== */
+  /* ===== TROCAR FOTO DE FUNDO DO HERO ===== */
   .hero {
-    background-image: url("../imagens/celularsabor.jpeg") !important;
+    background-image: url("../imagens/coxinha.jpeg") !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
@@ -2594,7 +2592,7 @@ footer .contact-item .fa-envelope {
     padding-bottom: 30px !important;
   }
 
-  /* ===== ESCONDER O BALÃO DO REVENDEDOR ===== */
+  /* ===== ESCONDER O BALÃO DO REVENDEDOR (texto + fundo + tudo) ===== */
   .reseller-bubble {
     display: none !important;
   }
