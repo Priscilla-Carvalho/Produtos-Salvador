@@ -2611,3 +2611,41 @@ footer .contact-item .fa-envelope {
     padding-bottom: 30px !important;
   }
 }
+@media (max-width: 640px) {
+  /* ===== BOTÃO MAIS PRA BAIXO ===== */
+  .btn-encomenda {
+    transform: none !important;
+    margin-top: 40px !important; /* ← ADICIONE ISSO */
+  }
+
+  /* ===== TROCAR FOTO DE FUNDO ===== */
+  .hero {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(28, 15, 6, 0.55) 0%,
+        rgba(28, 15, 6, 0.3) 55%,
+        rgba(28, 15, 6, 0.58) 100%
+      ),
+      url("../imagens/celularsabor.jpg") center / cover no-repeat !important;
+  }
+
+  /* ===== ESCONDER IMAGEM SABORCONQUISTA ===== */
+  .hero-text .crown {
+    display: none !important;
+  }
+
+  /* ===== ESCONDER O TEXTO ===== */
+  .hero-text p {
+    display: none !important;
+  }
+
+  /* ===== AJUSTE DO CONTAINER ===== */
+  .hero-inner {
+    min-height: 380px !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+    padding-bottom: 30px !important;
+  }
+}
