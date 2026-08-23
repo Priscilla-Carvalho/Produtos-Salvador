@@ -2562,75 +2562,14 @@ footer .contact-item .fa-envelope {
   /* =====================================================
      TROCAR FOTO DO HERO
      ===================================================== */
-
   .hero {
-    background:
-      linear-gradient(
-        180deg,
-        rgba(28, 15, 6, 0.55) 0%,
-        rgba(28, 15, 6, 0.3) 55%,
-        rgba(28, 15, 6, 0.58) 100%
-      ),
-      url("../imagens/celularsabor.jpg") center / cover no-repeat !important;
+    background-image: url("../imagens/celularsabor.jpeggit add") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
   }
 
-  /* =====================================================
-     ESCONDER A IMAGEM SABORCONQUISTA
-     ===================================================== */
-
-  .hero-text .crown {
-    display: none !important;
-  }
-
-  /* =====================================================
-     ESCONDER O TEXTO (p)
-     ===================================================== */
-
-  .hero-text p {
-    display: none !important;
-  }
-
-  /* =====================================================
-     BOTÃO DE ENCOMENDA - MAIS PRA BAIXO
-     ===================================================== */
-
-  .btn-encomenda {
-    margin-top: 30px !important; /* Ajuste esse valor conforme necessário */
-    transform: none !important;
-  }
-
-  /* =====================================================
-     AJUSTE DO CONTAINER DO HERO
-     ===================================================== */
-
-  .hero-inner {
-    min-height: 380px !important;
-    display: flex !important;
-    align-items: flex-end !important; /* Alinha o botão na parte inferior */
-    justify-content: center !important;
-    padding-bottom: 30px !important;
-  }
-}
-@media (max-width: 640px) {
-  /* ===== BOTÃO MAIS PRA BAIXO ===== */
-  .btn-encomenda {
-    transform: none !important;
-    margin-top: 40px !important; /* ← ADICIONE ISSO */
-  }
-
-  /* ===== TROCAR FOTO DE FUNDO ===== */
-  .hero {
-    background:
-      linear-gradient(
-        180deg,
-        rgba(28, 15, 6, 0.55) 0%,
-        rgba(28, 15, 6, 0.3) 55%,
-        rgba(28, 15, 6, 0.58) 100%
-      ),
-      url("../imagens/paçoca.jpeg") center / cover no-repeat !important;
-  }
-
-  /* ===== ESCONDER IMAGEM SABORCONQUISTA ===== */
+  /* ===== ESCONDER A IMAGEM SABORCONQUISTA ===== */
   .hero-text .crown {
     display: none !important;
   }
@@ -2638,6 +2577,12 @@ footer .contact-item .fa-envelope {
   /* ===== ESCONDER O TEXTO ===== */
   .hero-text p {
     display: none !important;
+  }
+
+  /* ===== BOTÃO MAIS PRA BAIXO ===== */
+  .btn-encomenda {
+    transform: none !important;
+    margin-top: 40px !important;
   }
 
   /* ===== AJUSTE DO CONTAINER ===== */
