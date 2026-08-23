@@ -2563,7 +2563,7 @@ footer .contact-item .fa-envelope {
      TROCAR FOTO DO HERO
      ===================================================== */
   .hero {
-    background-image: url("../imagens/celularsabor.jpeggit add") !important;
+    background-image: url("../imagens/celularsabor.jpeg") !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
@@ -2574,7 +2574,7 @@ footer .contact-item .fa-envelope {
     display: none !important;
   }
 
-  /* ===== ESCONDER O TEXTO ===== */
+  /* ===== ESCONDER O TEXTO DO HERO ===== */
   .hero-text p {
     display: none !important;
   }
@@ -2585,12 +2585,23 @@ footer .contact-item .fa-envelope {
     margin-top: 40px !important;
   }
 
-  /* ===== AJUSTE DO CONTAINER ===== */
+  /* ===== AJUSTE DO CONTAINER DO HERO ===== */
   .hero-inner {
     min-height: 380px !important;
     display: flex !important;
     align-items: flex-end !important;
     justify-content: center !important;
     padding-bottom: 30px !important;
+  }
+
+  /* ===== ESCONDER O BALÃO DO REVENDEDOR ===== */
+  .reseller-bubble {
+    display: none !important;
+  }
+
+  /* ===== ESCONDER O TRACINHO DO BALÃO ===== */
+  .reseller-bubble::after {
+    display: none !important;
+    content: none !important;
   }
 }
