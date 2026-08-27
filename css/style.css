@@ -2847,3 +2847,127 @@ footer .contact-item .fa-envelope {
 .btn-table-whatsapp:active {
   transform: translateY(2px);
 }
+
+/* =====================================================
+   CORREÇÃO DEFINITIVA - TABELA REVENDEDOR MOBILE
+===================================================== */
+
+/* TABELA COMPLETAMENTE ESCONDIDA QUANDO FECHADA */
+
+.reseller-table-panel {
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+
+  width: min(520px, 100%) !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+
+  background: var(--cream) !important;
+
+  z-index: 10002 !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+
+  transform: translateX(105%) !important;
+
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+
+  transition:
+    transform 0.35s ease,
+    opacity 0.2s ease,
+    visibility 0.35s ease !important;
+
+  box-shadow: -8px 0 30px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* QUANDO CLICAR NO BOTÃO */
+
+.reseller-table-panel.open {
+  transform: translateX(0) !important;
+
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* FUNDO ESCURO */
+
+.reseller-table-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+
+  background: rgba(0, 0, 0, 0.55) !important;
+
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+
+  z-index: 10001 !important;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease !important;
+}
+
+.reseller-table-overlay.open {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+/* =====================================================
+   BOTÃO VER TABELA
+===================================================== */
+
+.btn-open-reseller-table {
+  margin-top: 15px !important;
+
+  background: #ffffff !important;
+  color: var(--brown) !important;
+
+  box-shadow: 0 5px 0 #d2c2a8 !important;
+
+  transform: none !important;
+
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn-open-reseller-table:hover {
+  transform: translateY(-2px) !important;
+}
+
+.btn-open-reseller-table:active {
+  transform: translateY(2px) !important;
+}
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 640px) {
+  .reseller-table-panel {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  /* NO CELULAR NÃO FAZ O BOTÃO PULAR */
+
+  .btn-open-reseller-table,
+  .btn-open-reseller-table:hover {
+    transform: none !important;
+  }
+
+  .btn-open-reseller-table:active {
+    transform: scale(0.98) !important;
+  }
+
+  .reseller-table-content {
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+}
