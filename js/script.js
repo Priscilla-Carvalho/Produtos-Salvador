@@ -795,4 +795,54 @@ document.addEventListener("DOMContentLoaded", function () {
   // ==========================================
 
   atualizarCarrinho();
+
+  // =====================================================
+  // TABELA DE REVENDEDOR
+  // =====================================================
+
+  const openResellerTable = document.getElementById("open-reseller-table");
+
+  const resellerTablePanel = document.getElementById("reseller-table-panel");
+
+  const resellerTableOverlay = document.getElementById(
+    "reseller-table-overlay",
+  );
+
+  const closeResellerTable = document.getElementById("close-reseller-table");
+
+  function abrirTabelaRevendedor() {
+    if (!resellerTablePanel || !resellerTableOverlay) {
+      return;
+    }
+
+    resellerTablePanel.classList.add("open");
+
+    resellerTableOverlay.classList.add("open");
+
+    document.body.style.overflow = "hidden";
+  }
+
+  function fecharTabelaRevendedor() {
+    if (!resellerTablePanel || !resellerTableOverlay) {
+      return;
+    }
+
+    resellerTablePanel.classList.remove("open");
+
+    resellerTableOverlay.classList.remove("open");
+
+    document.body.style.overflow = "";
+  }
+
+  if (openResellerTable) {
+    openResellerTable.addEventListener("click", abrirTabelaRevendedor);
+  }
+
+  if (closeResellerTable) {
+    closeResellerTable.addEventListener("click", fecharTabelaRevendedor);
+  }
+
+  if (resellerTableOverlay) {
+    resellerTableOverlay.addEventListener("click", fecharTabelaRevendedor);
+  }
 });
