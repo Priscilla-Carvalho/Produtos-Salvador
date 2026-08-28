@@ -2,9 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ================= MENU ================= */
 
   const menuToggle = document.getElementById("menu-toggle");
-
   const nav = document.getElementById("nav");
-
   const navLinks = document.querySelectorAll(".nav-link");
 
   if (menuToggle && nav) {
@@ -65,13 +63,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   window.addEventListener("scroll", updateActiveLink);
-
   updateActiveLink();
 
   /* ================= VER PRODUTOS ================= */
 
   const showMoreButton = document.getElementById("show-more-products");
-
   const extraProducts = document.querySelectorAll(".extra-product");
 
   let productsExpanded = false;
@@ -86,14 +82,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (productsExpanded) {
         showMoreButton.innerHTML = `
-            MOSTRAR MENOS
-            <i class="fa-solid fa-chevron-up"></i>
-          `;
+          MOSTRAR MENOS
+          <i class="fa-solid fa-chevron-up"></i>
+        `;
       } else {
         showMoreButton.innerHTML = `
-            VER TODOS OS PRODUTOS
-            <i class="fa-solid fa-chevron-down"></i>
-          `;
+          VER TODOS OS PRODUTOS
+          <i class="fa-solid fa-chevron-down"></i>
+        `;
 
         const productsSection = document.getElementById("produtos");
 
@@ -112,28 +108,207 @@ document.addEventListener("DOMContentLoaded", () => {
   ===================================================== */
 
   const cartButton = document.getElementById("cart-button");
-
   const cartPanel = document.getElementById("cart-panel");
-
   const cartOverlay = document.getElementById("cart-overlay");
-
   const cartClose = document.getElementById("cart-close");
-
   const cartItems = document.getElementById("cart-items");
-
   const cartCount = document.getElementById("cart-count");
-
   const cartItemsText = document.getElementById("cart-items-text");
-
   const cartTotal = document.getElementById("cart-total");
-
   const checkoutWhatsapp = document.getElementById("checkout-whatsapp");
-
   const clearCart = document.getElementById("clear-cart");
 
   const whatsappNumber = "351913667138";
 
   let cart = [];
+
+  /* =====================================================
+     FRETE / FORMA DE ENTREGA
+  ===================================================== */
+
+  let deliveryMethod = localStorage.getItem("produtosSalvadorDelivery") || "";
+
+  function calculateShipping(subtotal) {
+    /* RECOLHA NO LOCAL */
+    if (deliveryMethod === "pickup") {
+      return 0;
+    }
+
+    /* PORTO */
+    if (deliveryMethod === "porto") {
+      return subtotal >= 20 ? 0 : 2.99;
+    }
+
+    /* RESTANTE DE PORTUGAL */
+    if (deliveryMethod === "portugal") {
+      return 4.99;
+    }
+
+    return 0;
+  }
+
+  function getDeliveryLabel() {
+    if (deliveryMethod === "pickup") {
+      return "Recolha no local";
+    }
+
+    if (deliveryMethod === "porto") {
+      return "Entrega no Porto";
+    }
+
+    if (deliveryMethod === "portugal") {
+      return "Entrega no restante de Portugal";
+    }
+
+    return "";
+  }
+
+  let deliveryArea = null;
+  let deliverySelect = null;
+  let deliverySubtotal = null;
+  let deliveryShipping = null;
+  let deliveryFinalTotal = null;
+
+  if (checkoutWhatsapp && checkoutWhatsapp.parentNode) {
+    deliveryArea = document.createElement("div");
+
+    deliveryArea.innerHTML = `
+      <div
+        style="
+          margin: 6px 0;
+          padding: 7px 9px;
+          border: 1px solid #eadfce;
+          border-radius: 9px;
+          background: #fffaf3;
+        "
+      >
+
+        <label
+          for="delivery-method"
+          style="
+            display: block;
+            margin-bottom: 3px;
+            font-size: 10px;
+            font-weight: 800;
+            color: #3c2a1e;
+          "
+        >
+          Forma de entrega
+        </label>
+
+        <select
+          id="delivery-method"
+          style="
+            width: 100%;
+            min-height: 34px;
+            padding: 5px 7px;
+            border: 1px solid #d7c6b3;
+            border-radius: 7px;
+            background: #ffffff;
+            color: #2d2119;
+            font-size: 12px;
+          "
+        >
+          <option value="">Selecione...</option>
+
+          <option value="porto">
+            Entrega no Porto
+          </option>
+
+          <option value="portugal">
+            Restante de Portugal
+          </option>
+
+          <option value="pickup">
+            Recolha no local — Grátis
+          </option>
+        </select>
+
+        <div
+          style="
+            margin-top: 4px;
+            font-size: 10px;
+            line-height: 1.35;
+            color: #655447;
+          "
+        >
+
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              gap: 8px;
+            "
+          >
+            <span>Subtotal</span>
+
+            <strong id="delivery-subtotal">
+              €0,00
+            </strong>
+          </div>
+
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              gap: 8px;
+            "
+          >
+            <span>Frete</span>
+
+            <strong id="delivery-shipping">
+              Selecione
+            </strong>
+          </div>
+
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              gap: 8px;
+              margin-top: 2px;
+              padding-top: 3px;
+              border-top: 1px solid #eadfce;
+              font-size: 11px;
+              color: #2d2119;
+            "
+          >
+            <span>
+              <strong>Total</strong>
+            </span>
+
+            <strong id="delivery-final-total">
+              €0,00
+            </strong>
+          </div>
+
+        </div>
+
+      </div>
+    `;
+
+    checkoutWhatsapp.parentNode.insertBefore(deliveryArea, checkoutWhatsapp);
+
+    deliverySelect = deliveryArea.querySelector("#delivery-method");
+
+    deliverySubtotal = deliveryArea.querySelector("#delivery-subtotal");
+
+    deliveryShipping = deliveryArea.querySelector("#delivery-shipping");
+
+    deliveryFinalTotal = deliveryArea.querySelector("#delivery-final-total");
+
+    if (deliverySelect) {
+      deliverySelect.value = deliveryMethod;
+
+      deliverySelect.addEventListener("change", () => {
+        deliveryMethod = deliverySelect.value;
+
+        localStorage.setItem("produtosSalvadorDelivery", deliveryMethod);
+
+        updateCart();
+      });
+    }
+  }
 
   /* =====================================================
      CARREGAR CARRINHO SALVO
@@ -332,9 +507,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     cartPanel.classList.add("open");
-
     cartOverlay.classList.add("open");
-
     document.body.classList.add("no-scroll");
   }
 
@@ -348,9 +521,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     cartPanel.classList.remove("open");
-
     cartOverlay.classList.remove("open");
-
     document.body.classList.remove("no-scroll");
   }
 
@@ -379,9 +550,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     button.addEventListener("click", () => {
       const name = card.dataset.product;
-
       const price = Number(card.dataset.price);
-
       const unit = card.dataset.unit;
 
       const imageElement = card.querySelector(".product-image img");
@@ -403,21 +572,19 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       saveCart();
-
       updateCart();
 
       const original = button.innerHTML;
 
       button.innerHTML = `
-            <i class="fa-solid fa-check"></i>
-            Adicionado
-          `;
+        <i class="fa-solid fa-check"></i>
+        Adicionado
+      `;
 
       button.style.background = "#25d366";
 
       setTimeout(() => {
         button.innerHTML = original;
-
         button.style.background = "";
       }, 900);
 
@@ -427,16 +594,13 @@ document.addEventListener("DOMContentLoaded", () => {
             {
               transform: "scale(1)",
             },
-
             {
               transform: "scale(1.18)",
             },
-
             {
               transform: "scale(1)",
             },
           ],
-
           {
             duration: 400,
           },
@@ -456,15 +620,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const quantity = cart.reduce((total, item) => total + item.quantity, 0);
 
-    const total = cart.reduce((sum, item) => {
+    const subtotalCart = cart.reduce((sum, item) => {
       const unitPrice = getUnitPrice(item);
 
       return sum + unitPrice * item.quantity;
     }, 0);
 
+    const shipping = calculateShipping(subtotalCart);
+
+    const finalTotal = subtotalCart + shipping;
+
     cartCount.textContent = quantity;
 
-    cartTotal.textContent = formatPrice(total);
+    cartTotal.textContent = formatPrice(finalTotal);
+
+    /* ATUALIZA ÁREA DO FRETE */
+
+    if (deliverySubtotal) {
+      deliverySubtotal.textContent = formatPrice(subtotalCart);
+    }
+
+    if (deliveryShipping) {
+      if (!deliveryMethod) {
+        deliveryShipping.textContent = "Selecione";
+      } else if (shipping === 0) {
+        deliveryShipping.textContent = "GRÁTIS";
+      } else {
+        deliveryShipping.textContent = formatPrice(shipping);
+      }
+    }
+
+    if (deliveryFinalTotal) {
+      deliveryFinalTotal.textContent = formatPrice(finalTotal);
+    }
 
     if (quantity === 0) {
       cartItemsText.textContent = "0 produtos";
@@ -475,14 +663,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (checkoutWhatsapp) {
-      checkoutWhatsapp.disabled = cart.length === 0;
+      checkoutWhatsapp.disabled = cart.length === 0 || !deliveryMethod;
     }
 
     /* CARRINHO VAZIO */
 
     if (cart.length === 0) {
       cartItems.innerHTML = `
-
         <div class="cart-empty">
 
           <i class="fa-solid fa-basket-shopping"></i>
@@ -497,7 +684,6 @@ document.addEventListener("DOMContentLoaded", () => {
           </p>
 
         </div>
-
       `;
 
       return;
@@ -520,134 +706,122 @@ document.addEventListener("DOMContentLoaded", () => {
 
       element.innerHTML = `
 
-          <img
-            src="${item.image}"
-            alt="${item.name}"
-            class="cart-item-image"
-          />
+        <img
+          src="${item.image}"
+          alt="${item.name}"
+          class="cart-item-image"
+        />
 
+        <div class="cart-item-info">
 
-          <div class="cart-item-info">
+          <h3>
+            ${item.name}
+          </h3>
 
-            <h3>
-              ${item.name}
-            </h3>
+          ${
+            discount
+              ? `
+                <div
+                  style="
+                    color: #159447;
+                    font-size: 9px;
+                    font-weight: 800;
+                    margin-top: 3px;
+                  "
+                >
+                  ✓ PREÇO DE REVENDEDOR APLICADO
+                </div>
+              `
+              : ""
+          }
 
+          <div class="cart-item-price">
 
             ${
               discount
                 ? `
-                  <div
+                  <span
                     style="
-                      color: #159447;
-                      font-size: 9px;
-                      font-weight: 800;
-                      margin-top: 3px;
+                      text-decoration: line-through;
+                      color: #9b8878;
+                      margin-right: 5px;
                     "
                   >
-                    ✓ PREÇO DE REVENDEDOR APLICADO
-                  </div>
+                    ${formatPrice(item.price)}
+                  </span>
                 `
                 : ""
             }
 
+            ${formatPrice(unitPrice)}
 
-            <div class="cart-item-price">
+            ${item.unit}
 
-              ${
-                discount
-                  ? `
-                    <span
-                      style="
-                        text-decoration: line-through;
-                        color: #9b8878;
-                        margin-right: 5px;
-                      "
-                    >
-                      ${formatPrice(item.price)}
-                    </span>
-                  `
-                  : ""
-              }
+          </div>
 
-              ${formatPrice(unitPrice)}
+          ${
+            discountMessage
+              ? `
+                <div
+                  style="
+                    margin-top: 5px;
+                    padding: 5px 7px;
+                    border-radius: 7px;
+                    background: #fff5d7;
+                    color: #7a5c40;
+                    font-size: 8px;
+                    line-height: 1.4;
+                  "
+                >
+                  💡 ${discountMessage}
+                </div>
+              `
+              : ""
+          }
 
-              ${item.unit}
+          <div class="cart-item-bottom">
+
+            <div class="quantity-control">
+
+              <button
+                type="button"
+                class="quantity-minus"
+                data-index="${index}"
+              >
+                −
+              </button>
+
+              <span>
+                ${item.quantity}
+              </span>
+
+              <button
+                type="button"
+                class="quantity-plus"
+                data-index="${index}"
+              >
+                +
+              </button>
 
             </div>
 
-
-            ${
-              discountMessage
-                ? `
-                  <div
-                    style="
-                      margin-top: 5px;
-                      padding: 5px 7px;
-                      border-radius: 7px;
-                      background: #fff5d7;
-                      color: #7a5c40;
-                      font-size: 8px;
-                      line-height: 1.4;
-                    "
-                  >
-                    💡 ${discountMessage}
-                  </div>
-                `
-                : ""
-            }
-
-
-            <div class="cart-item-bottom">
-
-              <div class="quantity-control">
-
-                <button
-                  type="button"
-                  class="quantity-minus"
-                  data-index="${index}"
-                >
-                  −
-                </button>
-
-                <span>
-                  ${item.quantity}
-                </span>
-
-                <button
-                  type="button"
-                  class="quantity-plus"
-                  data-index="${index}"
-                >
-                  +
-                </button>
-
-              </div>
-
-
-              <div class="cart-subtotal">
-
-                ${formatPrice(subtotal)}
-
-              </div>
-
+            <div class="cart-subtotal">
+              ${formatPrice(subtotal)}
             </div>
 
           </div>
 
+        </div>
 
-          <button
-            type="button"
-            class="cart-remove"
-            data-index="${index}"
-            aria-label="Remover produto"
-          >
-
-            <i class="fa-solid fa-trash"></i>
-
-          </button>
-
-        `;
+        <button
+          type="button"
+          class="cart-remove"
+          data-index="${index}"
+          aria-label="Remover produto"
+        >
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      `;
 
       cartItems.appendChild(element);
     });
@@ -661,7 +835,6 @@ document.addEventListener("DOMContentLoaded", () => {
         cart[index].quantity += 1;
 
         saveCart();
-
         updateCart();
       });
     });
@@ -679,7 +852,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         saveCart();
-
         updateCart();
       });
     });
@@ -693,7 +865,6 @@ document.addEventListener("DOMContentLoaded", () => {
         cart.splice(index, 1);
 
         saveCart();
-
         updateCart();
       });
     });
@@ -712,7 +883,6 @@ document.addEventListener("DOMContentLoaded", () => {
       cart = [];
 
       saveCart();
-
       updateCart();
     });
   }
@@ -724,6 +894,14 @@ document.addEventListener("DOMContentLoaded", () => {
   if (checkoutWhatsapp) {
     checkoutWhatsapp.addEventListener("click", () => {
       if (cart.length === 0) {
+        return;
+      }
+
+      if (!deliveryMethod) {
+        alert(
+          "Por favor, selecione a forma de entrega antes de finalizar o pedido.",
+        );
+
         return;
       }
 
@@ -754,13 +932,25 @@ document.addEventListener("DOMContentLoaded", () => {
         message += `Subtotal: ${formatPrice(subtotal)}\n\n`;
       });
 
-      const total = cart.reduce((sum, item) => {
+      const subtotalCart = cart.reduce((sum, item) => {
         const unitPrice = getUnitPrice(item);
 
         return sum + unitPrice * item.quantity;
       }, 0);
 
-      message += `💰 *TOTAL: ${formatPrice(total)}*\n\n`;
+      const shipping = calculateShipping(subtotalCart);
+
+      const finalTotal = subtotalCart + shipping;
+
+      message += `📍 *FORMA DE ENTREGA:* ${getDeliveryLabel()}\n`;
+
+      message += `🛍️ *SUBTOTAL:* ${formatPrice(subtotalCart)}\n`;
+
+      message += `🚚 *FRETE:* ${
+        shipping === 0 ? "GRÁTIS" : formatPrice(shipping)
+      }\n`;
+
+      message += `💰 *TOTAL: ${formatPrice(finalTotal)}*\n\n`;
 
       message +=
         "Gostaria de confirmar a disponibilidade e combinar a entrega/levantamento.";
@@ -826,7 +1016,6 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
       closeCart();
-
       closeTable();
 
       if (nav) {
