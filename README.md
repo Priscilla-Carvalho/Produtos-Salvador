@@ -44,6 +44,13 @@ O website foi desenvolvido para funcionar em diferentes tamanhos de tela, inclui
 
 👉 https://produtossalvador.online
 
+<img width="1896" height="862" alt="image" src="https://github.com/user-attachments/assets/5aed42cb-2e1e-4169-a4a8-705f4af0eefb" />
+
+<img width="1900" height="860" alt="image" src="https://github.com/user-attachments/assets/9f602be0-b33c-4f97-bd35-30403170a6fc" />
+
+<img width="1905" height="856" alt="image" src="https://github.com/user-attachments/assets/baa24711-b81f-4b8b-b016-06dbb0128bb4" />
+
+
 ## 👩‍💻 Desenvolvido por
 
 **Priscilla Carvalho**
