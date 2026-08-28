@@ -2031,8 +2031,9 @@ a {
   }
 
   .hero-box {
+    width: 100%;
+    margin-left: 0 !important;
     align-items: center;
-
     text-align: center;
   }
 
