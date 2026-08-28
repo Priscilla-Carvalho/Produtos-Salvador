@@ -15,11 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (nav.classList.contains("open")) {
         icon.classList.remove("fa-bars");
-
         icon.classList.add("fa-xmark");
       } else {
         icon.classList.remove("fa-xmark");
-
         icon.classList.add("fa-bars");
       }
     });
@@ -36,7 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (icon) {
           icon.classList.remove("fa-xmark");
-
           icon.classList.add("fa-bars");
         }
       }
@@ -110,7 +107,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ================= CARRINHO ================= */
+  /* =====================================================
+     CARRINHO
+  ===================================================== */
 
   const cartButton = document.getElementById("cart-button");
 
@@ -136,7 +135,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let cart = [];
 
-  /* CARREGAR CARRINHO */
+  /* =====================================================
+     CARREGAR CARRINHO SALVO
+  ===================================================== */
 
   try {
     const savedCart = localStorage.getItem("produtosSalvadorCart");
@@ -148,13 +149,17 @@ document.addEventListener("DOMContentLoaded", () => {
     cart = [];
   }
 
-  /* SALVAR */
+  /* =====================================================
+     SALVAR CARRINHO
+  ===================================================== */
 
   function saveCart() {
     localStorage.setItem("produtosSalvadorCart", JSON.stringify(cart));
   }
 
-  /* PREÇO */
+  /* =====================================================
+     FORMATAR PREÇO
+  ===================================================== */
 
   function formatPrice(value) {
     return value.toLocaleString("pt-PT", {
@@ -163,7 +168,163 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ABRIR */
+  /* =====================================================
+     PREÇOS DE REVENDEDOR
+  ===================================================== */
+
+  function getUnitPrice(item) {
+    const quantity = item.quantity;
+
+    /* TORRESMO PURURUCA */
+
+    if (item.name === "TORRESMO") {
+      if (quantity >= 30) {
+        return 2.5;
+      }
+
+      if (quantity >= 10) {
+        return 3.0;
+      }
+
+      return 3.99;
+    }
+
+    /* TORRESMO PRÉ-FRITO */
+
+    if (item.name === "TORRESMO PRÉ-FRITO") {
+      if (quantity >= 2) {
+        return 9.99;
+      }
+
+      return 11.99;
+    }
+
+    /* PÃO DE QUEIJO */
+
+    if (item.name === "PÃO DE QUEIJO") {
+      if (quantity >= 5) {
+        return 5.5;
+      }
+
+      return 6.99;
+    }
+
+    /* COXINHA */
+
+    if (item.name === "COXINHA") {
+      if (quantity >= 5) {
+        return 5.5;
+      }
+
+      return 6.99;
+    }
+
+    /* BOLINHA DE QUEIJO */
+
+    if (item.name === "BOLINHA DE QUEIJO") {
+      if (quantity >= 5) {
+        return 5.5;
+      }
+
+      return 6.99;
+    }
+
+    /* PASTELZINHO */
+
+    if (item.name === "PASTELZINHO DE CARNE") {
+      if (quantity >= 5) {
+        return 5.5;
+      }
+
+      return 6.99;
+    }
+
+    /* OUTROS PRODUTOS */
+
+    return item.price;
+  }
+
+  /* =====================================================
+     VERIFICAR SE TEM DESCONTO
+  ===================================================== */
+
+  function hasResellerDiscount(item) {
+    return getUnitPrice(item) < item.price;
+  }
+
+  /* =====================================================
+     AVISO DE PRÓXIMO DESCONTO
+  ===================================================== */
+
+  function getDiscountMessage(item) {
+    const quantity = item.quantity;
+
+    /* TORRESMO */
+
+    if (item.name === "TORRESMO") {
+      if (quantity < 10) {
+        const faltam = 10 - quantity;
+
+        return `
+          Adicione mais ${faltam}
+          ${faltam === 1 ? "pacote" : "pacotes"}
+          e pague €3,00 cada.
+        `;
+      }
+
+      if (quantity >= 10 && quantity < 30) {
+        const faltam = 30 - quantity;
+
+        return `
+          Adicione mais ${faltam}
+          ${faltam === 1 ? "pacote" : "pacotes"}
+          e pague €2,50 cada.
+        `;
+      }
+
+      return "";
+    }
+
+    /* TORRESMO PRÉ-FRITO */
+
+    if (item.name === "TORRESMO PRÉ-FRITO") {
+      if (quantity < 2) {
+        return `
+          Adicione mais 1 pacote
+          e pague €9,99 cada.
+        `;
+      }
+
+      return "";
+    }
+
+    /* PRODUTOS COM DESCONTO A PARTIR DE 5 */
+
+    const produtosCinco = [
+      "COXINHA",
+      "PÃO DE QUEIJO",
+      "BOLINHA DE QUEIJO",
+      "PASTELZINHO DE CARNE",
+    ];
+
+    if (produtosCinco.includes(item.name)) {
+      if (quantity < 5) {
+        const faltam = 5 - quantity;
+
+        return `
+          Adicione mais ${faltam}
+          ${faltam === 1 ? "pacote" : "pacotes"}
+          e pague €5,50 cada.
+        `;
+      }
+    }
+
+    return "";
+  }
+
+  /* =====================================================
+     ABRIR CARRINHO
+  ===================================================== */
 
   function openCart() {
     if (!cartPanel || !cartOverlay) {
@@ -177,7 +338,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add("no-scroll");
   }
 
-  /* FECHAR */
+  /* =====================================================
+     FECHAR CARRINHO
+  ===================================================== */
 
   function closeCart() {
     if (!cartPanel || !cartOverlay) {
@@ -203,7 +366,9 @@ document.addEventListener("DOMContentLoaded", () => {
     cartOverlay.addEventListener("click", closeCart);
   }
 
-  /* ================= ADICIONAR PRODUTOS ================= */
+  /* =====================================================
+     ADICIONAR PRODUTOS
+  ===================================================== */
 
   document.querySelectorAll(".product-card").forEach((card) => {
     const button = card.querySelector(".add-cart");
@@ -280,7 +445,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ================= ATUALIZAR CARRINHO ================= */
+  /* =====================================================
+     ATUALIZAR CARRINHO
+  ===================================================== */
 
   function updateCart() {
     if (!cartItems || !cartCount || !cartTotal || !cartItemsText) {
@@ -289,10 +456,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const quantity = cart.reduce((total, item) => total + item.quantity, 0);
 
-    const total = cart.reduce(
-      (sum, item) => sum + item.price * item.quantity,
-      0,
-    );
+    const total = cart.reduce((sum, item) => {
+      const unitPrice = getUnitPrice(item);
+
+      return sum + unitPrice * item.quantity;
+    }, 0);
 
     cartCount.textContent = quantity;
 
@@ -310,7 +478,7 @@ document.addEventListener("DOMContentLoaded", () => {
       checkoutWhatsapp.disabled = cart.length === 0;
     }
 
-    /* VAZIO */
+    /* CARRINHO VAZIO */
 
     if (cart.length === 0) {
       cartItems.innerHTML = `
@@ -338,7 +506,13 @@ document.addEventListener("DOMContentLoaded", () => {
     cartItems.innerHTML = "";
 
     cart.forEach((item, index) => {
-      const subtotal = item.price * item.quantity;
+      const unitPrice = getUnitPrice(item);
+
+      const subtotal = unitPrice * item.quantity;
+
+      const discount = hasResellerDiscount(item);
+
+      const discountMessage = getDiscountMessage(item);
 
       const element = document.createElement("div");
 
@@ -360,13 +534,68 @@ document.addEventListener("DOMContentLoaded", () => {
             </h3>
 
 
+            ${
+              discount
+                ? `
+                  <div
+                    style="
+                      color: #159447;
+                      font-size: 9px;
+                      font-weight: 800;
+                      margin-top: 3px;
+                    "
+                  >
+                    ✓ PREÇO DE REVENDEDOR APLICADO
+                  </div>
+                `
+                : ""
+            }
+
+
             <div class="cart-item-price">
 
-              ${formatPrice(item.price)}
+              ${
+                discount
+                  ? `
+                    <span
+                      style="
+                        text-decoration: line-through;
+                        color: #9b8878;
+                        margin-right: 5px;
+                      "
+                    >
+                      ${formatPrice(item.price)}
+                    </span>
+                  `
+                  : ""
+              }
+
+              ${formatPrice(unitPrice)}
 
               ${item.unit}
 
             </div>
+
+
+            ${
+              discountMessage
+                ? `
+                  <div
+                    style="
+                      margin-top: 5px;
+                      padding: 5px 7px;
+                      border-radius: 7px;
+                      background: #fff5d7;
+                      color: #7a5c40;
+                      font-size: 8px;
+                      line-height: 1.4;
+                    "
+                  >
+                    💡 ${discountMessage}
+                  </div>
+                `
+                : ""
+            }
 
 
             <div class="cart-item-bottom">
@@ -423,7 +652,7 @@ document.addEventListener("DOMContentLoaded", () => {
       cartItems.appendChild(element);
     });
 
-    /* MAIS */
+    /* BOTÃO MAIS */
 
     cartItems.querySelectorAll(".quantity-plus").forEach((button) => {
       button.addEventListener("click", () => {
@@ -437,7 +666,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    /* MENOS */
+    /* BOTÃO MENOS */
 
     cartItems.querySelectorAll(".quantity-minus").forEach((button) => {
       button.addEventListener("click", () => {
@@ -470,7 +699,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ================= LIMPAR ================= */
+  /* =====================================================
+     LIMPAR CARRINHO
+  ===================================================== */
 
   if (clearCart) {
     clearCart.addEventListener("click", () => {
@@ -486,7 +717,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ================= WHATSAPP ================= */
+  /* =====================================================
+     FINALIZAR NO WHATSAPP
+  ===================================================== */
 
   if (checkoutWhatsapp) {
     checkoutWhatsapp.addEventListener("click", () => {
@@ -500,21 +733,32 @@ document.addEventListener("DOMContentLoaded", () => {
       message += "🛒 *MEU PEDIDO*\n\n";
 
       cart.forEach((item) => {
-        const subtotal = item.price * item.quantity;
+        const unitPrice = getUnitPrice(item);
+
+        const subtotal = unitPrice * item.quantity;
+
+        const discount = hasResellerDiscount(item);
 
         message += `• *${item.name}*\n`;
 
         message += `Quantidade: ${item.quantity}\n`;
 
-        message += `Preço: ${formatPrice(item.price)} ${item.unit}\n`;
+        if (discount) {
+          message += `Preço normal: ${formatPrice(item.price)} ${item.unit}\n`;
+
+          message += `Preço revendedor: ${formatPrice(unitPrice)} ${item.unit}\n`;
+        } else {
+          message += `Preço: ${formatPrice(unitPrice)} ${item.unit}\n`;
+        }
 
         message += `Subtotal: ${formatPrice(subtotal)}\n\n`;
       });
 
-      const total = cart.reduce(
-        (sum, item) => sum + item.price * item.quantity,
-        0,
-      );
+      const total = cart.reduce((sum, item) => {
+        const unitPrice = getUnitPrice(item);
+
+        return sum + unitPrice * item.quantity;
+      }, 0);
 
       message += `💰 *TOTAL: ${formatPrice(total)}*\n\n`;
 
@@ -527,7 +771,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ================= TABELA REVENDEDOR ================= */
+  /* =====================================================
+     TABELA REVENDEDOR
+  ===================================================== */
 
   const openResellerTable = document.getElementById("open-reseller-table");
 
